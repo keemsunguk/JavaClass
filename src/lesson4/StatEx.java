@@ -56,10 +56,17 @@ public class StatEx {
 	public double[] sortData() {
 		double sdata[] = new double [as];
 		
+		if(as == 0) {
+			System.out.println("No data");
+			return null;
+		}
+//		sdata = data;
 		sdata = data.clone();
 		// This is the Bubble sort.
+		
+		
 		for(int a=1; a < as; a++) {
-			for(int b=as-1; b >= a; b--) {
+			for(int b = as-1; b >= a; b--) {
 				if(sdata[b-1] > sdata[b]) { // if out of order
 					// exchange elements
 					double t = sdata[b-1];
