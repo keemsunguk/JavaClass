@@ -2,6 +2,9 @@ package Lesson5;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+
+import lesson4.StatEx;
 
 public class RunBigData {
 
@@ -28,10 +31,29 @@ public class RunBigData {
 		ReadStockData reads = new ReadStockData();
 		try{
 			File inFile = new File("AMZN.txt");
-			int nl = reads.LookAhead(inFile);			
+			int nl = reads.LookAhead(inFile);		//nl = num of lines	
 			System.out.println(nl);
 			
-			StockData [] sd = reads.sd;
+			inFile = null;
+			inFile = new File("AMZN.txt");
+
+			reads.ReadStock(inFile, nl);
+			
+			ArrayList <StockData> sd = reads.sd;
+			int sz = sd.size();
+			
+			double [] op = new double [sz];
+			for(int i = 0; i < sz; i++) {
+				op[i] = sd.get(i).open_price;
+			}
+			
+			StatEx myStat = new StatEx(op);
+			System.out.format("The Minimum is: %5.2f\n", myStat.getMin());   //hw 5
+			System.out.format("The Maximum is: %5.2f\n", myStat.getMax());	 //hw 5
+			System.out.format("The sum is: %5.2f\n", myStat.getSum());
+			System.out.format("The Mean is: %5.2f\n", myStat.getMean());			
+			System.out.format("The Stdev is: %5.2f\n", myStat.getStdev());
+			
 			
 		} catch (IOException e) {
 			System.out.println("Reading error...");

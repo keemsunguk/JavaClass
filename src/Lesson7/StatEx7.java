@@ -1,25 +1,19 @@
-package lesson4;
+package Lesson7;
 
-//import java.io.*;
-/*
- * private:  Own class
- * protected:  Own and subclasses (inheritance) + package
- * default: package
- * public: all 
- */
-public class StatEx {
+public class StatEx7 implements StatFunctions, ProbFunctions {
 	private	double resSum = 0.0;
 	private	double resMean = 0.0;
 	private	double resStdev = 0.0;
 	private double data[];	
 	private int as = 0;
 	
-	StatEx() {
+	
+	StatEx7() {
 		data = null;
 		as = 0;
 	}
 	
-	public StatEx(double d[]) {
+	public StatEx7(double d[]) {
 		data = d;
 		as = data.length;
 	}
@@ -100,4 +94,15 @@ public class StatEx {
 		
 		return max;
 	}
+
+	public boolean binaryFunction() {
+		boolean res = false;
+		
+		return res;
+	}
+	public double probability() {
+		return 0.0;
+	}
+
+	
 }
